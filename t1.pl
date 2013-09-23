@@ -3,10 +3,16 @@
 use Modern::Perl;
 use DDP;
 my $data = &read_DATA( join '', <DATA> );
-my $golf = $data->{Perl_Golf};
+my @golf = split /\n/, $data->{'Perl_Golf'};
+my @data;
 
-# p $data;
-p $golf;
+# push @data, [split //] for @golf;
+for (@golf) {
+    push @data, [ split // ];
+}
+p @data;
+
+# p @golf;
 
 sub read_DATA {
     my $string = shift;
