@@ -3,18 +3,14 @@
 use Modern::Perl;
 use DDP;
 my $data = &read_DATA( join '', <DATA> );
-my $golf= $data->{Perl_Golf};
+my $golf = $data->{Perl_Golf};
+
 # p $data;
 p $golf;
 
-
 sub read_DATA {
-
-    # my ($file) = @_;
-    my $string = shift; #read_file($file);
+    my $string = shift;
     print {*STDERR} "Reading from __DATA__...\n";
-
-  # my %contents_of = do { local $/; "", split /_____\[ (\S+) \]_+\n/, <DATA> };
     my %contents_of =
       do { local $/; "", split /_____\[ (\S+) \]_+\n/, $string };
     for ( values %contents_of ) {
